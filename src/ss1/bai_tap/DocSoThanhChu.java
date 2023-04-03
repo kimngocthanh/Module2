@@ -9,7 +9,7 @@ public class DocSoThanhChu {
         int number = Integer.parseInt(scanner.nextLine());
         int[] so = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         String[] chuoiSo1 = {" ", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-        String[] chuoiSo2 = {" ", " ", "twen", "thir", "for", "fif", "six", "seven", "eight", "nine"};
+        String[] chuoiSo2 = {" ", "one ", "twen", "thir", "for", "fif", "six", "seven", "eight", "nine"};
         switch ((number + "").length()) {
             case 1:
                 for (int i = 0; i < so.length; i++) {
@@ -32,18 +32,29 @@ public class DocSoThanhChu {
                     } else if (number == 13) {
                         System.out.println("thirteen");
                         break;
-                    } else if (number<20){
-                        System.out.println(chuoiSo1[i]+"teen");
+                    } else if (number < 20) {
+                        System.out.println(chuoiSo1[i] + "teen");
                     } else {
-                        System.out.println(chuoiSo2[number/10]+"ty "+chuoiSo1[number%10]);
+                        System.out.println(chuoiSo2[number / 10] + "ty " + chuoiSo1[number % 10]);
                         break;
                     }
                 }
             case 3:
                 for (int i = 0; i < so.length; i++) {
-                    System.out.println(chuoiSo1[number/100]+" hundred"+ chuoiSo2[(number-(number/100*100))/10]+chuoiSo1[(number%100)%10]);
-                    break;
-
+                    if ((number - (number / 100 * 100)) == 11) {
+                        System.out.println(chuoiSo1[number / 100] + " hundred " + "eleven");
+                        break;
+                    } else if ((number - (number / 100 * 100)) == 12) {
+                        System.out.println(chuoiSo1[number / 100] + " hundred " + "twelve");
+                        break;
+                    }
+                    else if ((number - (number / 100 * 100)) == 13) {
+                        System.out.println(chuoiSo1[number / 100] + " hundred " + "thirteen");
+                        break;
+                    } else {
+                        System.out.println(chuoiSo1[number / 100] + " hundred" + chuoiSo2[(number - (number / 100 * 100)) / 10] + chuoiSo1[(number % 100) % 10]);
+                        break;
+                    }
                 }
         }
     }
