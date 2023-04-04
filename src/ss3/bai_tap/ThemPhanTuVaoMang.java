@@ -11,22 +11,22 @@ public class ThemPhanTuVaoMang {
         int[] mang = new int[doDai];
         int[] mangChen = new int[doDai + 1];
         for (int i = 0; i < doDai; i++) {
-            System.out.print("nhập phần tử thứ " + (i + 1)+":");
+            System.out.print("nhập phần tử thứ " + (i + 1) + ":");
             mang[i] = scanner.nextInt();
         }
         System.out.println("nhập số muốn chèn :");
         int x = scanner.nextInt();
         System.out.println("nhập vị trí muốn chèn");
         int viTri = scanner.nextInt();
-        for (int i = 0; i <doDai ; i++) {
-            if(i==viTri){
-                for (int j = viTri; j < mangChen.length-1; j++) {
-                    mangChen[i]=x;
-                    mangChen[j]=mang[j];
-                }
-            }else {
-                mangChen[i]=mang[i];
+        for (int i = 0; i < mang.length; i++) {
+            if (i == viTri) {
+                for (int j = i + 1; j < mang.length + 1; j++) {
+                    mangChen[j] = mang[j - 1];
+                    mangChen[i] = x;
+                }break;
             }
+            mangChen[i] = mang[i];
+
         }
         System.out.println(Arrays.toString(mangChen));
 
