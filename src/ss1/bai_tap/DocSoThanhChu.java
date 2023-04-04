@@ -52,7 +52,7 @@ public class DocSoThanhChu {
                         System.out.println(chuoiSo1[number / 100] + " hundred " + "thirteen");
                         break;
                     } else {
-                        System.out.println(chuoiSo1[number / 100] + " hundred" + chuoiSo2[(number - (number / 100 * 100)) / 10] + chuoiSo1[(number % 100) % 10]);
+                        System.out.println(chuoiSo1[number / 100] + " hundred" + chuoiSo2[(number - (number / 100 * 100)) / 10] +"ty "+ chuoiSo1[(number % 100) % 10]);
                         break;
                     }
                 }
