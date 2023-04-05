@@ -33,20 +33,24 @@ public class HienThiCacLoaiHinh {
                     break;
                 case 3:
                     for (int i = 7; i >= 1; i--) {
-                        for (int j = 1; j <i ; j++) {
+                        for (int j = 1; j < i; j++) {
                             System.out.print("*");
-                        }System.out.println("");
-                    }break;
+                        }
+                        System.out.println("");
+                    }
+                    break;
                 case 4:
                     for (int i = 0; i <= 5; i++) {
                         for (int j = 0; j <= 10; j++) {
-                            if(i==5||(j>=(5-i)&&j<=(5+i))){
+                            if (i == 5 || (j >= (5 - i) && j <= (5 + i))) {
                                 System.out.print("*");
-                            }else {
+                            } else {
                                 System.out.print(" ");
                             }
-                        }System.out.println("");
-                    }break;
+                        }
+                        System.out.println("");
+                    }
+                    break;
                 case 0:
                     break;
             }
