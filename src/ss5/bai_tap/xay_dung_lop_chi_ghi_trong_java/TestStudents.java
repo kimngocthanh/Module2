@@ -6,5 +6,7 @@ public class TestStudents {
         students.setName("kim ngọc thành");
         students.setClasses("C0223G1");
         System.out.println(students.toString());
+        Students students1 = new Students();
+        System.out.println(students1.getName());
     }
 }
