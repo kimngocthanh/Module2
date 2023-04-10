@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class MoveablePoint extends Point {
     private float xSpeed = 0.0f;
     private float ySpeed = 0.0f;
-    private float[] speed = new float[4];
+    private float[] array = new float[2];
 
     public MoveablePoint() {
 
@@ -21,7 +21,6 @@ public class MoveablePoint extends Point {
         super(x, y);
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
-        setSpeed(xSpeed, ySpeed);
     }
 
     public float getXSpeed() {
@@ -41,19 +40,15 @@ public class MoveablePoint extends Point {
     }
 
     public void setSpeed(float xSpeed, float ySpeed) {
-        speed[0] = xSpeed;
-        speed[1] = ySpeed;
-        this.speed = speed;
+        array[0] = xSpeed;
+        array[1] = ySpeed;
+        this.array = array;
     }
 
     public float[] getSpeed() {
-        return speed;
+        return array;
     }
-    public MoveablePoint move(){
-        super.setX(getX()+xSpeed);
-        super.setY(getY()+ySpeed);
-        return this;
-    }
+
 
     @Override
     public String toString() {
@@ -62,7 +57,13 @@ public class MoveablePoint extends Point {
                 ", ySpeed=" + ySpeed +
                 ", x=" + getX() +
                 ", y=" + getY() +
-                ", speed=" + Arrays.toString(speed) +
                 '}';
+
+    }
+
+    public Point move() {
+        super.setX(getX() + xSpeed);
+        super.setY(getY() + ySpeed);
+        return this;
     }
 }

@@ -6,9 +6,9 @@ public class MoveablePointTest {
         System.out.println(moveablePoint.toString());
 
         MoveablePoint moveablePoint1 = new MoveablePoint(20, 25, 3, 5);
-        System.out.println(moveablePoint1.toString());
+        System.out.println(moveablePoint1.move());
 
         MoveablePoint moveablePoint2 = new MoveablePoint(4, 6);
-        System.out.println(moveablePoint2.toString());
+        System.out.println(moveablePoint2.move());
     }
 }
