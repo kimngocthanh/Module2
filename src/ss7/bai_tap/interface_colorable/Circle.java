@@ -1,6 +1,6 @@
 package ss7.bai_tap.interface_colorable;
 
-public class Circle extends Shape{
+public class Circle extends Shape {
     private double radius = 1.0;
 
     public Circle() {
@@ -35,7 +35,6 @@ public class Circle extends Shape{
     public String toString() {
         return "A Circle with radius="
                 + getRadius()
-                + ", which is a subclass of "
-                + super.toString();
+                + ", which is a subclass of ";
     }
 }

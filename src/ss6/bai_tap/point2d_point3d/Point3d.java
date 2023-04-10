@@ -17,8 +17,8 @@ public class Point3d extends Point2d {
     }
 
     public void setXYZ(float x, float y, float z) {
-        array[0] = x;
-        array[1] = y;
+        array[0] = getX();
+        array[1] = getY();
         array[2] = z;
         this.array = array;
 
@@ -39,7 +39,7 @@ public class Point3d extends Point2d {
 
     @Override
     public String toString() {
-        return "x=" + getX() + " y=" + getY() + " z=" + z + " array = " + Arrays.toString(array);
+        return "x=" + getX() + " y=" + getY() + " z=" + z + " array2 = " + Arrays.toString(array) + " array1 = " + Arrays.toString(super.getArray());
     }
 }
 

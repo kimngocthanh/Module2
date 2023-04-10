@@ -7,6 +7,6 @@ public class TestStudents {
         students.setClasses("C0223G1");
         System.out.println(students.toString());
         Student students1 = new Student();
-        System.out.println(students1.getName());
+        System.out.println(students1.toString());
     }
 }
