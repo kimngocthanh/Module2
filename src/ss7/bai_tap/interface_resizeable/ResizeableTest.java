@@ -6,12 +6,12 @@ public class ResizeableTest {
         Circle circle = new Circle(25, "blue", true);
         Rectangle rectangle = new Rectangle(20, 25, "red", true);
         Square square = new Square(15, "red", true);
-        shapes[0]=circle;
-        shapes[1]=rectangle;
-        shapes[2]=square;
+        shapes[0] = circle;
+        shapes[1] = rectangle;
+        shapes[2] = square;
         for (int i = 0; i < shapes.length; i++) {
             System.out.println(shapes[i].toString());
-            shapes[i].resize(Math.random()*1);
+            shapes[i].resize(Math.random() * 1);
         }
 
     }

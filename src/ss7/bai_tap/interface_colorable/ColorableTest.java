@@ -11,8 +11,8 @@ public class ColorableTest {
         shapes[2] = square;
         for (int i = 0; i < shapes.length; i++) {
             if(shapes[i]==square){
-                shapes[i].howToColor();
                 System.out.println(shapes[i].toString());
+                shapes[i].howToColor();
             }else {
                 System.out.println(shapes[i].toString());
             }

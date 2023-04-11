@@ -49,7 +49,6 @@ public class Rectangle extends Shape {
                 + " and length="
                 + getLength()
                 + ", which is a subclass of "
-                + super.toString()
                 + "diện tích :"
                 + getArea();
     }

@@ -1,13 +1,13 @@
 package ss7.bai_tap.interface_colorable;
 
-public class Square extends Shape implements Colorable{
+public class Square extends Shape implements IColorable {
     private double size = 1;
 
-    public Square(){
+    public Square() {
 
     }
 
-    public Square(double size, String color, boolean filled){
+    public Square(double size, String color, boolean filled) {
         super(color, filled);
         this.size = size;
     }
@@ -20,12 +20,20 @@ public class Square extends Shape implements Colorable{
         this.size = size;
     }
 
-    public double getArea(){
-        return size*size;
+    public double getArea() {
+        return size * size;
     }
 
-    public double getPerimeter(){
-        return 4*size;
+    public double getPerimeter() {
+        return 4 * size;
+    }
+
+
+    @Override
+    public String toString() {
+        return " A Square " +
+                "size= " + size +
+                " diện tích =" + getArea();
     }
 
     @Override
@@ -33,10 +41,4 @@ public class Square extends Shape implements Colorable{
         System.out.println("Color all four sides");
     }
 
-    @Override
-    public String toString() {
-        return "Square{" +
-                "size=" + size +
-                " diện tích " + getArea();
-    }
 }

@@ -1,9 +1,6 @@
 package ss7.thuc_hanh.animal_interface_edible.animal;
 
-import ss7.thuc_hanh.animal_interface_edible.animal.Animal;
-import ss7.thuc_hanh.animal_interface_edible.animal.Tiger;
-import ss7.thuc_hanh.animal_interface_edible.animal.Chicken;
-import ss7.thuc_hanh.animal_interface_edible.edible.Edible;
+import ss7.thuc_hanh.animal_interface_edible.edible.IEdible;
 import ss7.thuc_hanh.animal_interface_edible.fruit.Apple;
 import ss7.thuc_hanh.animal_interface_edible.fruit.Orange;
 import ss7.thuc_hanh.animal_interface_edible.fruit.Fruit;
@@ -17,7 +14,7 @@ public class AbstractAndInterfaceTests {
             System.out.println(animal.makeSound());
 
             if (animal instanceof Chicken) {
-                Edible edibler = (Chicken) animal;
+                IEdible edibler = (Chicken) animal;
                 System.out.println(edibler.howToEat());
             }
         }

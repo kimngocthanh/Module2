@@ -1,6 +1,6 @@
 package ss7.bai_tap.interface_resizeable;
 
-public class Square extends Shape implements Resizeable {
+public class Square extends Shape implements IResizeable {
     private double side = 1;
 
     public Square() {
@@ -55,7 +55,7 @@ public class Square extends Shape implements Resizeable {
 
     @Override
     public void resize(double percent) {
-        System.out.println("diện tích hv sau khi tăng" + (getArea() + getArea() * percent));
+        System.out.println("side hv sau khi tăng : " + (side + side * percent));
     }
 
     @Override

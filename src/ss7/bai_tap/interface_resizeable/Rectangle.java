@@ -1,6 +1,6 @@
 package ss7.bai_tap.interface_resizeable;
 
-public class Rectangle extends Shape implements Resizeable{
+public class Rectangle extends Shape implements IResizeable {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -57,6 +57,7 @@ public class Rectangle extends Shape implements Resizeable{
 
     @Override
     public void resize(double percent) {
-        System.out.println("diện tích hcn sau khi tăng :" +(getArea()+getArea()*percent));
+        System.out.println("width hcn sau khi tăng :" + (width + width * percent));
+        System.out.println("width hcn sau khi tăng :" + (length + length * percent));
     }
 }

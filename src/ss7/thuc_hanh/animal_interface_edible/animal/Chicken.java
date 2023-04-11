@@ -1,9 +1,8 @@
 package ss7.thuc_hanh.animal_interface_edible.animal;
 
-import ss7.thuc_hanh.animal_interface_edible.animal.Animal;
-import ss7.thuc_hanh.animal_interface_edible.edible.Edible;
+import ss7.thuc_hanh.animal_interface_edible.edible.IEdible;
 
-public class Chicken extends Animal implements Edible {
+public class Chicken extends Animal implements IEdible {
 
     @Override
     public String makeSound() {

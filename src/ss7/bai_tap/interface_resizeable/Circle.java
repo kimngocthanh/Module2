@@ -1,6 +1,6 @@
 package ss7.bai_tap.interface_resizeable;
 
-public class Circle extends Shape implements Resizeable{
+public class Circle extends Shape implements IResizeable {
     private double radius = 1.0;
 
     public Circle() {
@@ -31,10 +31,6 @@ public class Circle extends Shape implements Resizeable{
         return 2 * radius * Math.PI;
     }
 
-    @Override
-    public void resize(double percent) {
-        System.out.println("diện tích hình tròn sau khi tăng"+(getArea()+getArea()*percent));
-    }
 
     @Override
     public String toString() {
@@ -42,7 +38,13 @@ public class Circle extends Shape implements Resizeable{
                 + getRadius()
                 + ", which is a subclass of "
                 + super.toString()
-                + ", diện tích ban đầu : "+ getArea();
+                + ", diện tích ban đầu : " + getArea();
 
+    }
+
+    @Override
+    public void resize(double percent) {
+        System.out.println("bán kính hình tròn sau khi tăng" + (radius * percent + radius));
+        System.out.println("");
     }
 }

@@ -1,6 +1,6 @@
 package ss7.bai_tap.interface_colorable;
 
-public class Shape implements Colorable{
+public abstract class Shape implements IColorable {
     private String color = "green";
     private boolean filled = true;
 
