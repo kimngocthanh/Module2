@@ -9,12 +9,12 @@ public class ColorableTest {
         shapes[0] = circle;
         shapes[1] = rectangle;
         shapes[2] = square;
-        for (int i = 0; i < shapes.length; i++) {
-            if(shapes[i]==square){
-                System.out.println(shapes[i].toString());
-                shapes[i].howToColor();
-            }else {
-                System.out.println(shapes[i].toString());
+        for (Shape shape : shapes) {
+            if (shape == square) {
+                System.out.println(shape.toString());
+                ((Square) shape).howToColor();
+            } else {
+                System.out.println(shape.toString());
             }
         }
     }

@@ -9,9 +9,17 @@ public class ResizeableTest {
         shapes[0] = circle;
         shapes[1] = rectangle;
         shapes[2] = square;
-        for (int i = 0; i < shapes.length; i++) {
-            System.out.println(shapes[i].toString());
-            shapes[i].resize(Math.random() * 1);
+        for (Shape shape : shapes) {
+            if (shape == circle) {
+                System.out.println(shape.toString());
+                ((Circle) shape).resize(Math.random() * 1);
+            } else if (shape == rectangle) {
+                System.out.println(shape.toString());
+                ((Rectangle) shape).resize(Math.random() * 1);
+            } else {
+                System.out.println(shape.toString());
+                ((Square) shape).resize(Math.random() * 1);
+            }
         }
 
     }

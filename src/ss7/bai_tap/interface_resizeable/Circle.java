@@ -45,6 +45,5 @@ public class Circle extends Shape implements IResizeable {
     @Override
     public void resize(double percent) {
         System.out.println("bán kính hình tròn sau khi tăng" + (radius * percent + radius));
-        System.out.println("");
     }
 }

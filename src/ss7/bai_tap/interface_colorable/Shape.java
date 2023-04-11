@@ -1,6 +1,6 @@
 package ss7.bai_tap.interface_colorable;
 
-public abstract class Shape implements IColorable {
+public abstract class Shape {
     private String color = "green";
     private boolean filled = true;
 
@@ -36,8 +36,5 @@ public abstract class Shape implements IColorable {
                 + (isFilled() ? "filled" : "not filled");
     }
 
-    @Override
-    public void howToColor() {
-        System.out.println("Color all four sides");
-    }
+
 }
