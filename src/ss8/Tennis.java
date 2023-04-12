@@ -5,15 +5,13 @@ public class Tennis {
     private String player2;
     private int score1;
     private int score2;
-    private int tempScore =0;
-    private String score =" ";
+    private String score ="";
 
     public Tennis(String player1, String player2, int score1, int score2, int tempScore, String score) {
         this.player1 = player1;
         this.player2 = player2;
         this.score1 = score1;
         this.score2 = score2;
-        this.tempScore = tempScore;
         this.score = score;
     }
 
@@ -25,24 +23,13 @@ public class Tennis {
         this.score=score;
     }
 
-    public Tennis(String player1, String player2, int score1, int score2) {
+    public void setScore(String score) {
+        this.score = score;
     }
-
     public String getScore() {
         return score;
     }
 
-    public void setScore(String score) {
-        this.score = score;
-    }
-
-    public int getTempScore() {
-        return tempScore;
-    }
-
-    public void setTempScore(int tempScore) {
-        this.tempScore = tempScore;
-    }
 
     public String getPlayer1() {
         return player1;
@@ -78,9 +65,15 @@ public class Tennis {
 
     @Override
     public String toString() {
-        return "player1='" + player1 + '\'' +
-                ", player2='" + player2 + '\'' +
-                ", score1=" + score1 +
-                ", score2=" + score2 ;
+        SameScore sameScore = new SameScore(player1,player2,score1,score2,"");
+        ScoreFour scoreFour = new ScoreFour(player1,player2,score1,score2,"");
+        ScoreSmall scoreSmall = new ScoreSmall(player1,player2,score1,score2,"");
+        if(score1==score2){
+            return sameScore.toString();
+        }
+        else if(score1>4||score2>4){
+            return scoreFour.toString();
+        }
+        return scoreSmall.toString();
     }
 }
