@@ -4,15 +4,16 @@ public abstract class Person {
     private int id;
     private String name;
     private String date;
-    private boolean flag = true;
+    private String gender;
 
-    public Person(){}
+    public Person() {
+    }
 
-    public Person(int id , String name, String date, boolean flag){
+    public Person(int id, String name, String date, String gender) {
         this.id = id;
         this.name = name;
-        this.date=date;
-        this.flag=flag;
+        this.date = date;
+        this.gender = gender;
     }
 
     public int getId() {
@@ -39,11 +40,11 @@ public abstract class Person {
         this.date = date;
     }
 
-    public boolean isFlag() {
-        return flag;
+    public String getGender() {
+        return gender;
     }
 
-    public void setFlag(boolean flag) {
-        this.flag = flag;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

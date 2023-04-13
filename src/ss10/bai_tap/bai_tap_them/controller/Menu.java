@@ -7,8 +7,9 @@ import ss10.bai_tap.bai_tap_them.service.IFuncition;
 import java.util.Scanner;
 
 public class Menu  {
-    IFuncition iFuncition = new StudentService();
+    StudentService studentService = new StudentService();
     public void showMenu() {
+        Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("--Chương trình quản lý sinh viên--");
             System.out.println("Chọn chức năng để tiếp tục");
@@ -17,20 +18,21 @@ public class Menu  {
             System.out.println("3: xem danh sách ");
             System.out.println("4: Thoát");
             System.out.println("chọn chức năng :");
-            Scanner scanner = new Scanner(System.in);
-            int check = scanner.nextInt();
-            switch (check) {
+            int select = scanner.nextInt();
+            switch (select) {
                 case 1:
-                    iFuncition.add();
+                    studentService.add();
                     break;
                 case 2:
-                    iFuncition.display();
+                    studentService.remove();
                     break;
                 case 3:
-                    iFuncition.remove();
+                    studentService.display();
                     break;
                 case 4:
                     break;
+            }if(select==4){
+                break;
             }
         } while (true);
     }

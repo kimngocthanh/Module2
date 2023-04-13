@@ -2,25 +2,24 @@ package ss10.bai_tap.bai_tap_them.service;
 
 import ss10.bai_tap.bai_tap_them.model.Student;
 
+import java.util.List;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class StudentService extends Student implements IFuncition {
-    public StudentService(){
+    Scanner scanner = new Scanner(System.in);
 
-    }
-
-    public StudentService(int id, String name, String date, boolean flag, String myClass, int point) {
-        super(id, name, date, flag, myClass, point);
+    public StudentService() {
     }
 
     private static ArrayList<Student> students = new ArrayList(20);
 
     static {
-        Student student = new Student(1, "Thành", "13/9/2001", true, "C0223G1", 10);
-        Student student1 = new Student(2, "Thàn", "13/9/2001", true, "C0223G1", 10);
-        Student student2 = new Student(3, "Thà", "13/9/2001", true, "C0223G1", 10);
-        Student student3 = new Student(4, "Thnh", "13/9/2001", true, "C0223G1", 10);
-        Student student4 = new Student(5, "Tành", "13/9/2001", true, "C0223G1", 10);
+        Student student = new Student(1, "Thành", "13/9/2001", "nam", "C0223G1", 10);
+        Student student1 = new Student(2, "Thàn", "13/9/2001", "nữ", "C0223G1", 10);
+        Student student2 = new Student(3, "Thà", "13/9/2001", "nam", "C0223G1", 10);
+        Student student3 = new Student(4, "Thnh", "13/9/2001", "nữ", "C0223G1", 10);
+        Student student4 = new Student(5, "Tành", "13/9/2001", "nam", "C0223G1", 10);
         students.add(student);
         students.add(student1);
         students.add(student2);
@@ -28,23 +27,62 @@ public class StudentService extends Student implements IFuncition {
         students.add(student4);
     }
 
+    public StudentService(int id, String name, String date, String gender, String myClass, int point) {
+        super(id, name, date, gender, myClass, point);
+    }
+
     @Override
     public void add() {
-        Student student = new Student(getId(), getName(), getDate(), isFlag(), getMyClass(), getPoint());
+        System.out.println("nhập id");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.println("nhập tên");
+        String name = scanner.nextLine();
+        System.out.println("nhập ngày tháng sinh");
+        String date = scanner.nextLine();
+        System.out.println("giới tính");
+        String gender = scanner.nextLine();
+        System.out.println("Lớp");
+        String myClass = scanner.nextLine();
+        System.out.println("Điểm");
+        int point = Integer.parseInt(scanner.nextLine());
+        Student student = new Student(id, name, date, gender, myClass, point);
         students.add(student);
     }
 
     @Override
     public void display() {
-        System.out.println(students);
+        for (Student s : students) {
+            System.out.print(s.getId() + " ");
+            System.out.print(s.getName() + " ");
+            System.out.print(s.getGender() + " ");
+            System.out.print(s.getDate() + " ");
+            System.out.print(s.getMyClass() + " ");
+            System.out.println(s.getPoint() + " ");
+
+        }
+
     }
 
     @Override
     public void remove() {
+        System.out.println("nhập id muốn xóa");
+        int id = Integer.parseInt(scanner.nextLine());
+        boolean flag = false;
         for (int i = 0; i < students.size(); i++) {
-            if (i == getId()) {
-                students.remove(i);
+            if (id == students.get(i).getId()) {
+                flag = true;
+                System.out.println("bạn có chắc muốn xóa k 1:xóa, 2 không xóa");
+                int chose = Integer.parseInt(scanner.nextLine());
+                if (chose == 1) {
+                    students.remove(i);
+                } else {
+                    break;
+                }
+                break;
             }
+        }
+        if (!flag) {
+            System.out.println("ko có id muốn xóa");
         }
     }
 }

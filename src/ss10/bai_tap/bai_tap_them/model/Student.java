@@ -5,10 +5,13 @@ import ss10.bai_tap.bai_tap_them.model.Person;
 public class Student extends Person {
     private String myClass;
     private int point;
-    public Student(){}
 
-    public Student(int id, String name, String date, boolean flag, String myClass, int point) {
-        super(id, name, date, flag);
+    public Student(){
+
+    }
+
+    public Student(int id, String name, String date, String gender, String myClass, int point) {
+        super(id, name, date, gender);
         this.myClass=myClass;
         this.point=point;
     }
