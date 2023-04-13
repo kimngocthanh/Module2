@@ -52,12 +52,12 @@ public class StudentService extends Student implements IFuncition {
     @Override
     public void display() {
         for (Student s : students) {
-            System.out.print(s.getId() + " ");
-            System.out.print(s.getName() + " ");
-            System.out.print(s.getGender() + " ");
-            System.out.print(s.getDate() + " ");
-            System.out.print(s.getMyClass() + " ");
-            System.out.println(s.getPoint() + " ");
+            System.out.print("id: " + s.getId() + " ");
+            System.out.print("name: " + s.getName() + " ");
+            System.out.print("Giới tính: " + s.getGender() + " ");
+            System.out.print("ngày sinh:" + s.getDate() + " ");
+            System.out.print("Lớp: " + s.getMyClass() + " ");
+            System.out.println("Điểm: " + s.getPoint() + " ");
 
         }
 
@@ -71,7 +71,9 @@ public class StudentService extends Student implements IFuncition {
         for (int i = 0; i < students.size(); i++) {
             if (id == students.get(i).getId()) {
                 flag = true;
-                System.out.println("bạn có chắc muốn xóa k 1:xóa, 2 không xóa");
+                System.out.println("bạn có chắc muốn xóa k ");
+                System.out.println("1: xóa ");
+                System.out.println("2: không ");
                 int chose = Integer.parseInt(scanner.nextLine());
                 if (chose == 1) {
                     students.remove(i);
