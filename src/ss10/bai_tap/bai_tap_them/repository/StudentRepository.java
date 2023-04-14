@@ -33,11 +33,13 @@ public class StudentRepository implements IFuncitionRepository<Student> {
 
     @Override
     public boolean remove(int index) {
-        for (int i=0; i< students.size();i++){
-            if(index==students.get(i).getId()){
+        for (int i = 0; i < students.size(); i++) {
+            if (index == students.get(i).getId()) {
                 students.remove(i);
                 return true;
-            }return false;
-        }return false;
+            }
+            return false;
+        }
+        return false;
     }
 }

@@ -13,7 +13,7 @@ public class Main {
         PhanTuSoNguyen.showPush(stack, 2);
         PhanTuSoNguyen.showPush(stack, 3);
         PhanTuSoNguyen.showPush(stack, 4);
-        PhanTuSoNguyen.showPop(stack,stack1);
+        PhanTuSoNguyen.showPop(stack, stack1);
 
     }
 }

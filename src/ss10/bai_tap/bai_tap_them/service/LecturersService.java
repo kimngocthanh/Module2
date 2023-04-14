@@ -10,7 +10,8 @@ public class LecturersService implements IFuncitionService {
     Scanner scanner = new Scanner(System.in);
     private LecturersRepository lecturersRepository = new LecturersRepository();
     ArrayList<Lecturers> lecturersArrayList = lecturersRepository.display();
-    public LecturersService(){
+
+    public LecturersService() {
     }
 
     @Override
@@ -25,14 +26,14 @@ public class LecturersService implements IFuncitionService {
         String gender = scanner.nextLine();
         System.out.println("level");
         int level = Integer.parseInt(scanner.nextLine());
-        Lecturers newLecturers = new Lecturers(id,name,date,gender,level);
+        Lecturers newLecturers = new Lecturers(id, name, date, gender, level);
         lecturersArrayList.add(newLecturers);
     }
 
 
     @Override
     public void display() {
-        for (Lecturers l: lecturersArrayList) {
+        for (Lecturers l : lecturersArrayList) {
             System.out.println(l);
         }
     }

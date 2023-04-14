@@ -9,10 +9,10 @@ public class ChuyenDoi {
         Stack<Integer> stack = new Stack<>();
         System.out.println("nhập n: ");
         int n = Integer.parseInt(scanner.nextLine());
-        while (n!=0){
-            int nhiPhan = n%2;
+        while (n != 0) {
+            int nhiPhan = n % 2;
             stack.push(nhiPhan);
-            n/=2;
+            n /= 2;
         }
         int size = stack.size();
         for (int i = 0; i < size; i++) {

@@ -12,17 +12,17 @@ public class KiemTraDauNgoac {
         for (int i = 0; i < arrStr.length; i++) {
             if (arrStr[i].equals("(")) {
                 lStack.push(arrStr[i]);
-            }
-            else if( arrStr[i].equals(")")){
-                if(lStack.isEmpty()){
+            } else if (arrStr[i].equals(")")) {
+                if (lStack.isEmpty()) {
                     System.out.println("no");
-                }else {
+                } else {
                     lStack.pop();
                 }
             }
-        }if (lStack.isEmpty()){
+        }
+        if (lStack.isEmpty()) {
             System.out.println("yes");
-        }else {
+        } else {
             System.out.println("no");
         }
     }

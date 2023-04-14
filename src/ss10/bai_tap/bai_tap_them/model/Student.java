@@ -6,14 +6,14 @@ public class Student extends Person {
     private String myClass;
     private int point;
 
-    public Student(){
+    public Student() {
 
     }
 
     public Student(int id, String name, String date, String gender, String myClass, int point) {
         super(id, name, date, gender);
-        this.myClass=myClass;
-        this.point=point;
+        this.myClass = myClass;
+        this.point = point;
     }
 
     public String getMyClass() {
@@ -35,10 +35,10 @@ public class Student extends Person {
     @Override
     public String toString() {
         return "Student{" +
-                "id: " + getId()+
-                "name: " + getName()+
-                "date: " + getDate()+
-                "gender:" + getGender()+
+                "id: " + getId() +
+                "name: " + getName() +
+                "date: " + getDate() +
+                "gender:" + getGender() +
                 "myClass: '" + myClass + '\'' +
                 ", point: " + point +
                 '}';

@@ -6,23 +6,23 @@ public class KiemTraChuoiQueue {
     public static void main(String[] args) {
         String str1 = "abc cba";
         String str = str1.toLowerCase(Locale.ROOT);
-        Stack<String> stack= new Stack<>();
+        Stack<String> stack = new Stack<>();
         Queue<String> queue = new ArrayDeque<>();
         String[] arrStr = str.split(" ");
         System.out.println(Arrays.toString(arrStr));
-        for (String s: arrStr) {
+        for (String s : arrStr) {
             stack.push(s);
             queue.add(s);
         }
         boolean flag = true;
-        for (String a: arrStr) {
-            if(stack.pop().equals(queue.remove())){
+        for (String a : arrStr) {
+            if (stack.pop().equals(queue.remove())) {
                 flag = false;
             }
         }
-        if(flag){
+        if (flag) {
             System.out.println("palindrome");
-        }else {
+        } else {
             System.out.println("no palindrome");
         }
 

@@ -42,8 +42,7 @@ public class Menu {
                     break;
                 }
             } while (true);
-        }
-        else if(check==1){
+        } else if (check == 1) {
             do {
                 System.out.println("--Chương trình quản lý Giảng viên--");
                 System.out.println("Chọn chức năng để tiếp tục");

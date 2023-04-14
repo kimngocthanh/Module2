@@ -11,7 +11,7 @@ public class Main {
         PhanTuChuoi.showPush(stack, "b");
         PhanTuChuoi.showPush(stack, "c");
         PhanTuChuoi.showPush(stack, "d");
-        PhanTuChuoi.showPop(stack,stack1);
+        PhanTuChuoi.showPop(stack, stack1);
 
     }
 }

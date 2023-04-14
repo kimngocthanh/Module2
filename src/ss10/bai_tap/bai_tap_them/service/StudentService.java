@@ -10,6 +10,7 @@ public class StudentService extends Student implements IFuncitionService {
     Scanner scanner = new Scanner(System.in);
     private StudentRepository studentRepository = new StudentRepository();
     ArrayList<Student> studentArrayList = studentRepository.display();
+
     public StudentService() {
     }
 
