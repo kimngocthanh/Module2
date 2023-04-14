@@ -1,9 +1,7 @@
 package ss10.bai_tap.bai_tap_them.controller;
 
-import ss10.bai_tap.bai_tap_them.service.IFuncition;
 import ss10.bai_tap.bai_tap_them.service.LecturersService;
 import ss10.bai_tap.bai_tap_them.service.StudentService;
-import ss10.bai_tap.bai_tap_them.service.IFuncition;
 
 import java.util.Scanner;
 

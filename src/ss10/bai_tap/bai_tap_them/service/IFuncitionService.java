@@ -1,6 +1,6 @@
 package ss10.bai_tap.bai_tap_them.service;
 
-public interface IFuncition {
+public interface IFuncitionService {
     void add();
 
     void display();

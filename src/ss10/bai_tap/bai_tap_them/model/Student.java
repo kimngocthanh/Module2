@@ -31,4 +31,16 @@ public class Student extends Person {
     public void setPoint(int point) {
         this.point = point;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id: " + getId()+
+                "name: " + getName()+
+                "date: " + getDate()+
+                "gender:" + getGender()+
+                "myClass: '" + myClass + '\'' +
+                ", point: " + point +
+                '}';
+    }
 }

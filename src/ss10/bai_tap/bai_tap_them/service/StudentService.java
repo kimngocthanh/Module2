@@ -1,34 +1,16 @@
 package ss10.bai_tap.bai_tap_them.service;
 
 import ss10.bai_tap.bai_tap_them.model.Student;
+import ss10.bai_tap.bai_tap_them.repository.StudentRepository;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class StudentService extends Student implements IFuncition {
+public class StudentService extends Student implements IFuncitionService {
     Scanner scanner = new Scanner(System.in);
-
+    private StudentRepository studentRepository = new StudentRepository();
+    ArrayList<Student> studentArrayList = studentRepository.display();
     public StudentService() {
-    }
-
-    private static ArrayList<Student> students = new ArrayList(20);
-
-    static {
-        Student student = new Student(1, "Thành", "13/9/2001", "nam", "C0223G1", 10);
-        Student student1 = new Student(2, "Thàn", "13/9/2001", "nữ", "C0223G1", 10);
-        Student student2 = new Student(3, "Thà", "13/9/2001", "nam", "C0223G1", 10);
-        Student student3 = new Student(4, "Thnh", "13/9/2001", "nữ", "C0223G1", 10);
-        Student student4 = new Student(5, "Tành", "13/9/2001", "nam", "C0223G1", 10);
-        students.add(student);
-        students.add(student1);
-        students.add(student2);
-        students.add(student3);
-        students.add(student4);
-    }
-
-    public StudentService(int id, String name, String date, String gender, String myClass, int point) {
-        super(id, name, date, gender, myClass, point);
     }
 
     @Override
@@ -46,37 +28,30 @@ public class StudentService extends Student implements IFuncition {
         System.out.println("Điểm");
         int point = Integer.parseInt(scanner.nextLine());
         Student student = new Student(id, name, date, gender, myClass, point);
-        students.add(student);
+        studentRepository.add(student);
     }
 
     @Override
     public void display() {
-        for (Student s : students) {
-            System.out.print("id: " + s.getId() + " ");
-            System.out.print("name: " + s.getName() + " ");
-            System.out.print("Giới tính: " + s.getGender() + " ");
-            System.out.print("ngày sinh:" + s.getDate() + " ");
-            System.out.print("Lớp: " + s.getMyClass() + " ");
-            System.out.println("Điểm: " + s.getPoint() + " ");
-
+        for (Student s : studentArrayList) {
+            System.out.println(s);
         }
 
     }
 
     @Override
     public void remove() {
+        this.display();
         System.out.println("nhập id muốn xóa");
         int id = Integer.parseInt(scanner.nextLine());
         boolean flag = false;
-        for (int i = 0; i < students.size(); i++) {
-            if (id == students.get(i).getId()) {
+        for (int i = 0; i < studentArrayList.size(); i++) {
+            if (id == studentArrayList.get(i).getId()) {
                 flag = true;
-                System.out.println("bạn có chắc muốn xóa k ");
-                System.out.println("1: xóa ");
-                System.out.println("2: không ");
+                System.out.println("bạn có chắc muốn xóa k 1:xóa, 2 không xóa");
                 int chose = Integer.parseInt(scanner.nextLine());
                 if (chose == 1) {
-                    students.remove(i);
+                    studentArrayList.remove(i);
                 } else {
                     break;
                 }

@@ -17,4 +17,15 @@ public class Lecturers extends Person{
     public void setLevel(int level) {
         this.level = level;
     }
+
+    @Override
+    public String toString() {
+        return "Lecturers{" +
+                "id: " + getId()+
+                "name: " + getName()+
+                "date: " + getDate()+
+                "gender:" + getGender()+
+                "level=" + level +
+                '}';
+    }
 }
