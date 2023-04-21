@@ -59,5 +59,5 @@ public class ExpenceReponsitory implements IExpenceReponsitory{
             }
         }return null;
     }
-    
+
 }
