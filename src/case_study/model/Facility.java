@@ -1,4 +1,4 @@
-package case_study.model.facility;
+package case_study.model;
 
 public abstract class Facility {
     private int idService;

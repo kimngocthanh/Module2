@@ -1,4 +1,4 @@
-package case_study.model.person;
+package case_study.model;
 
 import java.time.LocalTime;
 

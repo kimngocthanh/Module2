@@ -1,6 +1,6 @@
-package case_study.model.facility;
+package case_study.model;
 
-import case_study.model.facility.Facility;
+import case_study.model.Facility;
 
 public class House extends Facility {
     private String roomStandardHouse;
