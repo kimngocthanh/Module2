@@ -1,5 +1,6 @@
 package case_study.model;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Employee extends Person {
@@ -11,8 +12,8 @@ public class Employee extends Person {
 
     }
 
-    public Employee(String id, String name, LocalTime localTime, String gender, String cmnd, String telephone, String email, String level, String location, double wage) {
-        super(id, name, localTime, gender, cmnd, telephone, email);
+    public Employee(String id, String name, LocalDate localDate, String gender, String cmnd, String telephone, String email, String level, String location, double wage) {
+        super(id, name, localDate, gender, cmnd, telephone, email);
         this.level = level;
         this.location = location;
         this.wage = wage;
@@ -50,5 +51,10 @@ public class Employee extends Person {
                 ", location='" + location + '\'' +
                 ", wage=" + wage +
                 '}';
+    }
+
+    public String writeAndReadToFile() {
+        return super.getId() + "," + super.getName() + "," + super.getLocalDate()+ "," + super.getGender()+ "," + super.getCmnd() + ","+
+                super.getTelephone()+ ","+ super.getEmail()+ ","+ this.level+","+this.location+","+ this.wage;
     }
 }

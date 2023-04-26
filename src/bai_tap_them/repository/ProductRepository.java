@@ -7,21 +7,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductRepository implements IProductRepository{
-    List<Product> productList = new ArrayList<>();
-    Common common = new Common();
+    private static List<Product> productList = new ArrayList<>();
+    private static final String PATH = "src/bai_tap_them/data/customer.csv";
     @Override
     public void add(Product product) {
         productList.add(product);
-        writeProduct("src/bai_tap_them/data/data.csv");
+        Common.write(PATH, productList);
     }
 
     @Override
     public List<Product> display() {
-        return common.read("src/bai_tap_them/data/data.csv");
+        productList= Common.read(PATH);
+        return productList;
     }
 
-    @Override
-    public void writeProduct(String PATH) {
-        //common.write("src/bai_tap_them/data/data.csv",);
-    }
+
 }

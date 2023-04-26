@@ -9,5 +9,5 @@ public interface IProductRepository {
 
     List<Product> display();
 
-    void writeProduct(String PATH);
+
 }

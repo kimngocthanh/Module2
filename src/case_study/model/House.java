@@ -40,4 +40,8 @@ public class House extends Facility {
                 ", floorHouse=" + floorHouse +
                 '}';
     }
+    public String writeAndReadToFile() {
+        return super.getIdService() +","+ super.getNameService()+","+ super.getArea()+","+super.getRentalCosts()+","+super.getQuantity()+","+super.getRentalType()+","+
+                this.roomStandardHouse+ ","+this.floorHouse;
+    }
 }

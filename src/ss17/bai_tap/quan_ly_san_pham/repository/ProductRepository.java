@@ -12,7 +12,7 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public void writeProduct(String PATH) {
-        common.writeProduct("src/ss17/bai_tap/quan_ly_san_pham/data/data.csv", productList);
+        common.writeProduct("src/ss17/bai_tap/quan_ly_san_pham/data/customer.csv", productList);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class ProductRepository implements IProductRepository {
     @Override
     public void addProduct(Product product) {
         productList.add(product);
-        writeProduct("src/ss17/bai_tap/quan_ly_san_pham/data/data.csv");
+        writeProduct("src/ss17/bai_tap/quan_ly_san_pham/data/customer.csv");
     }
 
     @Override

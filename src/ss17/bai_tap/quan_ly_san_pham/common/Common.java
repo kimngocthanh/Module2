@@ -23,7 +23,7 @@ public class Common {
 
     public List<Product> read() {
         List<Product> productList = new ArrayList<>();
-        String PATH = "src/ss17/bai_tap/quan_ly_san_pham/data/data.csv";
+        String PATH = "src/ss17/bai_tap/quan_ly_san_pham/data/customer.csv";
 
         FileInputStream fileInputStream = null;
         try {

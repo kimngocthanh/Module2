@@ -1,5 +1,6 @@
 package case_study.model;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Customer extends Person {
@@ -10,8 +11,8 @@ public class Customer extends Person {
 
     }
 
-    public Customer(String id, String name, LocalTime localTime, String gender, String cmnd, String telephone, String email, String customerType, String adress) {
-        super(id, name, localTime, gender, cmnd, telephone, email);
+    public Customer(String id, String name, LocalDate localDate, String gender, String cmnd, String telephone, String email, String customerType, String adress) {
+        super(id, name, localDate, gender, cmnd, telephone, email);
         this.customerType = customerType;
         this.adress = adress;
     }
@@ -39,5 +40,10 @@ public class Customer extends Person {
                 "customerType='" + customerType + '\'' +
                 ", adress='" + adress + '\'' +
                 '}';
+    }
+
+    public String writeAndReadToFile() {
+        return super.getId() + "," + super.getName() + "," + super.getLocalDate() + "," + super.getGender()+ "," + super.getCmnd() + "," + super.getTelephone()+ "," + super.getEmail() +","+
+                this.customerType+ "," + this.adress;
     }
 }

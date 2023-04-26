@@ -27,8 +27,8 @@ public class ProductService implements IProductService{
 
     @Override
     public void display() {
-        productRepository.display();
-        for (Product p: productRepository.display()) {
+        List<Product> productList =productRepository.display();
+        for (Product p: productList) {
             System.out.println(p);
         }
     }

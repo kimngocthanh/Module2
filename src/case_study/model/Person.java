@@ -1,11 +1,12 @@
 package case_study.model;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 public abstract class Person {
     private String id;
     private String name;
-    private LocalTime localTime;
+    private LocalDate localDate;
     private String gender;
     private String cmnd;
     private String telephone;
@@ -15,10 +16,10 @@ public abstract class Person {
 
     }
 
-    public Person(String id, String name, LocalTime localTime, String gender, String cmnd, String telephone, String email) {
+    public Person(String id, String name, LocalDate localDate, String gender, String cmnd, String telephone, String email) {
         this.id = id;
         this.name = name;
-        this.localTime = localTime;
+        this.localDate = localDate;
         this.gender = gender;
         this.cmnd = cmnd;
         this.telephone = telephone;
@@ -41,12 +42,12 @@ public abstract class Person {
         this.name = name;
     }
 
-    public LocalTime getLocalTime() {
-        return localTime;
+    public LocalDate getLocalDate() {
+        return localDate;
     }
 
-    public void setLocalTime(LocalTime localTime) {
-        this.localTime = localTime;
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
     }
 
     public String getGender() {
@@ -86,7 +87,7 @@ public abstract class Person {
         return "Person{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", localTime=" + localTime +
+                ", localTime=" + localDate +
                 ", gender='" + gender + '\'' +
                 ", cmnd='" + cmnd + '\'' +
                 ", telephone='" + telephone + '\'' +
