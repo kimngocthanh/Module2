@@ -28,6 +28,7 @@ public class EmployeeController {
                     break;
                 case "3":
                     // edit employee
+                    employeeService.editEmployee();
                     break;
                 case "4":
                     flag = false;

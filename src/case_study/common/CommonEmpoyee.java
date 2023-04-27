@@ -15,7 +15,7 @@ public class CommonEmpoyee {
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
-            fileWriter = new FileWriter(file, true);
+            fileWriter = new FileWriter(file);
             bufferedWriter = new BufferedWriter(fileWriter);
             for (Employee e : employees) {
                 bufferedWriter.write(e.writeAndReadToFile());
@@ -39,7 +39,7 @@ public class CommonEmpoyee {
             while ((line = bufferedReader.readLine()) != null && !line.equals("")) {
                 String[] employeeArr = line.split(",");
                 //String id, String name, LocalTime localTime, String gender, String cmnd, String telephone, String email, String level, String location, double wage
-                Employee employee = new Employee(employeeArr[0], employeeArr[1], LocalDate.parse(employeeArr[2]), employeeArr[3], employeeArr[4], employeeArr[5], employeeArr[6], employeeArr[7], employeeArr[8], Double.parseDouble(employeeArr[9]));
+                Employee employee = new Employee(employeeArr[0], employeeArr[1], employeeArr[2], employeeArr[3], employeeArr[4], employeeArr[5], employeeArr[6], employeeArr[7], employeeArr[8], Double.parseDouble(employeeArr[9]));
                 employeeList.add(employee);
             }
             bufferedReader.close();

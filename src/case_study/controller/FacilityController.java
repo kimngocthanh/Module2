@@ -20,7 +20,31 @@ public class FacilityController {
                     break;
                 case "2":
                     // add employee
-                    break;
+                    do {
+                        System.out.println("chọn loại dịch vụ muốn thêm mới\n" +
+                                "1. add villa\n" +
+                                "2. add house\n" +
+                                "3. add room\n" +
+                                "4. back to menu");
+                        int chose = Integer.parseInt(scanner.nextLine());
+                        switch (chose){
+                            case 1:
+                                //add villa
+                                break;
+                            case 2:
+                                //add house
+                                break;
+                            case 3:
+                                //add room
+                                break;
+                            case 4:
+                                flag=false;
+                                break;
+                            default:
+                                System.out.println("lệnh nhập không tồn tại!");
+                                break;
+                        }
+                    }while (flag);
                 case "3":
                     // edit employee
                     break;

@@ -12,7 +12,7 @@ public class Employee extends Person {
 
     }
 
-    public Employee(String id, String name, LocalDate localDate, String gender, String cmnd, String telephone, String email, String level, String location, double wage) {
+    public Employee(String id, String name, String localDate, String gender, String cmnd, String telephone, String email, String level, String location, double wage) {
         super(id, name, localDate, gender, cmnd, telephone, email);
         this.level = level;
         this.location = location;

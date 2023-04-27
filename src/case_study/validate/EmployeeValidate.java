@@ -1,12 +1,29 @@
 package case_study.validate;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Date;
+import java.util.logging.SimpleFormatter;
+
 public class EmployeeValidate {
     private static final String REGEX_ID_EMPLOYEE = "^NV-[0-9]{4}$";
-    private static final String REGEX_NAME_EMPLOYEE = "^([A-Z][a-z]+\\s[A-Z][a-z]+)+$";
+    private static final String REGEX_NAME_EMPLOYEE = "^[A-Z][a-z]+(\\s[A-Z][a-z]+)*$";
+    private static final String REGEX_OLD_EMPLOYEE = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$";
     private static final String REGEX_CMND_EMPLOYEE = "^([0-9]{12}|[0-9]{9})$";
     private static final String REGEX_TELEPHONE_EMPOLYEE = "^0[0-9]{9}$";
+
     public static boolean checkidEmployee(String idEmpoyee) {
         return idEmpoyee.matches(REGEX_ID_EMPLOYEE) ? true : false;
+    }
+
+    public static boolean checkOld(String old) {
+        if(old.matches(REGEX_OLD_EMPLOYEE)){
+            LocalDate dob = LocalDate.parse(old);
+            LocalDate curDate = LocalDate.now();
+            return Period.between(dob, curDate).getYears() >= 18;
+        }return false;
+
     }
 
     public static boolean checkNameEmployee(String nameEmployee) {

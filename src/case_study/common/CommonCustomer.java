@@ -29,7 +29,7 @@ public class CommonCustomer {
         }
     }
 
-    public List<Customer> readCustomer(String Path) {
+    public static List<Customer> readCustomer(String Path) {
         List<Customer> customersList = new ArrayList<>();
         File file = new File(Path);
         try {
@@ -39,7 +39,7 @@ public class CommonCustomer {
             while ((line = bufferedReader.readLine()) != null && !line.equals("")) {
                 String[] customerArr = line.split(",");
                 //String id, String name, LocalTime localTime, String gender, String cmnd, String telephone, String email, String customerType, String adress
-                Customer customer = new Customer(customerArr[0], customerArr[1], LocalDate.parse(customerArr[2]), customerArr[3], customerArr[4], customerArr[5], customerArr[6], customerArr[7], customerArr[8] );
+                Customer customer = new Customer(customerArr[0], customerArr[1], customerArr[2], customerArr[3], customerArr[4], customerArr[5], customerArr[6], customerArr[7], customerArr[8] );
                 customersList.add(customer);
             }
             bufferedReader.close();
