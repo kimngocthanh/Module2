@@ -30,19 +30,27 @@ public class CustomerService implements ICustomerService {
         do {
             System.out.print("nhập id customer :");
             idCustomer = scanner.nextLine();
+            if(!CustomerValidate.checkidCustomer(idCustomer)){
+                System.out.println("nhập id theo đúng định dạng KH-XXXX!");
+            }
         } while (!CustomerValidate.checkidCustomer(idCustomer));
 
         String nameCustomer;
         do {
             System.out.print("nhập name customer: ");
             nameCustomer = scanner.nextLine();
+            if (!CustomerValidate.checkNameCustomer(nameCustomer)) {
+                System.out.println("nhập tên đúng dạng viết hoa chữ đầu trong tên!");
+            }
         } while (!CustomerValidate.checkNameCustomer(nameCustomer));
-
 
         String localDate;
         do {
             System.out.print("nhập năm sinh: ");
             localDate = scanner.nextLine();
+            if (!CustomerValidate.checkOld(localDate)) {
+                System.out.println("nhập năm sinh theo dạng YYYY-MM-DD!");
+            }
         } while (!CustomerValidate.checkOld(localDate));
 
         System.out.println("Chon gioi tinh \n" +
@@ -60,12 +68,18 @@ public class CustomerService implements ICustomerService {
         do {
             System.out.print("nhập chứng minh nhân dân: ");
             cmnd = scanner.nextLine();
+            if(!CustomerValidate.checkCmndCustomer(cmnd)){
+                System.out.println("nhập lại đúng dạng phải đủ 9 hoặc 12 số");
+            }
         } while (!CustomerValidate.checkCmndCustomer(cmnd));
 
         String telephone;
         do {
             System.out.print("nhập số điện thoại: ");
             telephone = scanner.nextLine();
+            if(!CustomerValidate.checkTelephoneCustomer(telephone)){
+                System.out.println("nhập lại đúng dạng bắt đầu từ 0 và đủ 10 số.");
+            }
         } while (!CustomerValidate.checkTelephoneCustomer(telephone));
 
         System.out.print("nhập email: ");
@@ -122,6 +136,7 @@ public class CustomerService implements ICustomerService {
         System.out.print("nhập idEmployee muốn sửa: ");
         String id = scanner.nextLine();
         boolean flag = true;
+        boolean flag2 = true;
         for (int i = 0; i < customerList.size(); i++) {
             if (Objects.equals(id, customerList.get(i).getId())) {
                 do {
@@ -135,15 +150,18 @@ public class CustomerService implements ICustomerService {
                             "7. edit email\n" +
                             "8. edit customerType\n" +
                             "9. edit adress\n" +
-                            "10. thoát"+
+                            "10. thoát\n"+
                             "chọn trường bạn muốn edit: ");
                     int chose = Integer.parseInt(scanner.nextLine());
                     switch (chose) {
                         case 1:
                             String idCustomer;
                             do {
-                                System.out.print("nhập id employee :");
+                                System.out.print("nhập id customer :");
                                 idCustomer = scanner.nextLine();
+                                if(!CustomerValidate.checkidCustomer(idCustomer)){
+                                    System.out.println("nhập id theo đúng định dạng KH-XXXX!");
+                                }
                             } while (!CustomerValidate.checkidCustomer(idCustomer));
                             Customer customer = new Customer(idCustomer, customerList.get(i).getName(), customerList.get(i).getLocalDate(), customerList.get(i).getGender(), customerList.get(i).getCmnd(),
                                     customerList.get(i).getTelephone(), customerList.get(i).getEmail(), customerList.get(i).getCustomerType(), customerList.get(i).getAdress());
@@ -152,8 +170,11 @@ public class CustomerService implements ICustomerService {
                         case 2:
                             String nameCustomer;
                             do {
-                                System.out.print("nhập name employee: ");
+                                System.out.print("nhập name customer: ");
                                 nameCustomer = scanner.nextLine();
+                                if (!CustomerValidate.checkNameCustomer(nameCustomer)) {
+                                    System.out.println("nhập tên đúng dạng viết hoa chữ đầu trong tên!");
+                                }
                             } while (!EmployeeValidate.checkNameEmployee(nameCustomer));
                             customer = new Customer(customerList.get(i).getId(), nameCustomer, customerList.get(i).getLocalDate(), customerList.get(i).getGender(), customerList.get(i).getCmnd(),
                                     customerList.get(i).getTelephone(), customerList.get(i).getEmail(), customerList.get(i).getCustomerType(), customerList.get(i).getAdress());
@@ -164,7 +185,9 @@ public class CustomerService implements ICustomerService {
                             do {
                                 System.out.print("nhập năm sinh: ");
                                 localDate = scanner.nextLine();
-
+                                if (!CustomerValidate.checkOld(localDate)) {
+                                    System.out.println("nhập năm sinh theo dạng YYYY-MM-DD!");
+                                }
                             } while (!EmployeeValidate.checkOld(localDate));
                             customer = new Customer(customerList.get(i).getId(), customerList.get(i).getName(), localDate, customerList.get(i).getGender(), customerList.get(i).getCmnd(),
                                     customerList.get(i).getTelephone(), customerList.get(i).getEmail(), customerList.get(i).getCustomerType(), customerList.get(i).getAdress());
@@ -190,6 +213,9 @@ public class CustomerService implements ICustomerService {
                             do {
                                 System.out.print("nhập chứng minh nhân dân: ");
                                 cmnd = scanner.nextLine();
+                                if(!CustomerValidate.checkCmndCustomer(cmnd)){
+                                    System.out.println("nhập lại đúng dạng phải đủ 9 hoặc 12 số");
+                                }
                             } while (!EmployeeValidate.checkCmndEmployee(cmnd));
                             customer = new Customer(customerList.get(i).getId(), customerList.get(i).getName(), customerList.get(i).getLocalDate(), customerList.get(i).getGender(), cmnd,
                                     customerList.get(i).getTelephone(), customerList.get(i).getEmail(), customerList.get(i).getCustomerType(), customerList.get(i).getAdress());
@@ -200,6 +226,9 @@ public class CustomerService implements ICustomerService {
                             do {
                                 System.out.print("nhập số điện thoại: ");
                                 telephone = scanner.nextLine();
+                                if(!CustomerValidate.checkTelephoneCustomer(telephone)){
+                                    System.out.println("nhập lại đúng dạng bắt đầu từ 0 và đủ 10 số.");
+                                }
                             } while (!EmployeeValidate.checkTelephoneEmployee(telephone));
                             customer = new Customer(customerList.get(i).getId(), customerList.get(i).getName(), customerList.get(i).getLocalDate(), customerList.get(i).getGender(), customerList.get(i).getCmnd(),
                                     telephone, customerList.get(i).getEmail(), customerList.get(i).getCustomerType(), customerList.get(i).getAdress());
@@ -269,6 +298,11 @@ public class CustomerService implements ICustomerService {
                 } while (flag);
                 System.out.println("edit thành công!");
             }
+            else {
+                flag2 =false;
+            }
+        }if(!flag2){
+            System.out.println("ko có mã khách hàng muốn sửa!");
         }
     }
 }

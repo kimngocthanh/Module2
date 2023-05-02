@@ -1,10 +1,15 @@
 package case_study.controller;
 
+import case_study.service.BookingService;
+import case_study.service.ContractService;
+
 import java.util.Scanner;
 
 public class BookingController {
     public void displayBooking(){
         Scanner scanner = new Scanner(System.in);
+        BookingService bookingService = new BookingService();
+        ContractService contractService = new ContractService();
         boolean flag = true;
         do {
             System.out.println("chức năng booking\n" +
@@ -19,15 +24,19 @@ public class BookingController {
             switch (number4) {
                 case "1":
                     //add booking
+                    bookingService.addBooking();
                     break;
                 case "2":
                     //display
+                    bookingService.displayBooking();
                     break;
                 case "3":
                     //create new contracts
+                    contractService.addContract();
                     break;
                 case "4":
                     //Display list contracts
+                    contractService.displayContract();
                     break;
                 case "5":
                     //edit contracts

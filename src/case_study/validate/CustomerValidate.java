@@ -5,7 +5,7 @@ import java.time.Period;
 
 public class CustomerValidate {
     private static final String REGEX_ID_CUSTOMER = "^KH-[0-9]{4}$";
-    private static final String REGEX_NAME_CUSTOMER = "^[A-Z][a-z]+(\\s[A-Z][a-z]+)*$";
+    private static final String REGEX_NAME_CUSTOMER = "^^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$$";
     private static final String REGEX_OLD_CUSTOMER = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$";
     private static final String REGEX_CMND_CUSTOMER = "^([0-9]{12}|[0-9]{9})$";
     private static final String REGEX_TELEPHONE_CUSTOMER = "^0[0-9]{9}$";
@@ -25,7 +25,6 @@ public class CustomerValidate {
             return Period.between(dob, curDate).getYears() >= 18;
         }
         return false;
-
     }
 
     public static boolean checkCmndCustomer(String cmndCustomer) {

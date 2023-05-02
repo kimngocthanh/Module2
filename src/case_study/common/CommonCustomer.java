@@ -15,7 +15,7 @@ public class CommonCustomer {
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
-            fileWriter = new FileWriter(file, true);
+            fileWriter = new FileWriter(file);
             bufferedWriter = new BufferedWriter(fileWriter);
             for (Customer c : customers) {
                 bufferedWriter.write(c.writeAndReadToFile());

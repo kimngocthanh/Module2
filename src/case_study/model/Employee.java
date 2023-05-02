@@ -49,8 +49,7 @@ public class Employee extends Person {
                 super.toString() + '\'' +
                 "level='" + level + '\'' +
                 ", location='" + location + '\'' +
-                ", wage=" + wage +
-                '}';
+                ", wage=" + wage + '}';
     }
 
     public String writeAndReadToFile() {

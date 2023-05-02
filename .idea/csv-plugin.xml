@@ -24,13 +24,6 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\src\case_study\data\house.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="\src\ss16\bai_tap\doc_file_csv\Nationn.csv">
           <value>
             <Attribute>

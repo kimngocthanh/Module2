@@ -38,8 +38,7 @@ public class Customer extends Person {
         return "Customer{" +
                 super.toString() + '\'' +
                 "customerType='" + customerType + '\'' +
-                ", adress='" + adress + '\'' +
-                '}';
+                ", adress='" + adress + '\'' + '}';
     }
 
     public String writeAndReadToFile() {

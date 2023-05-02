@@ -8,7 +8,7 @@ import java.util.logging.SimpleFormatter;
 
 public class EmployeeValidate {
     private static final String REGEX_ID_EMPLOYEE = "^NV-[0-9]{4}$";
-    private static final String REGEX_NAME_EMPLOYEE = "^[A-Z][a-z]+(\\s[A-Z][a-z]+)*$";
+    private static final String REGEX_NAME_EMPLOYEE = "^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$";
     private static final String REGEX_OLD_EMPLOYEE = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$";
     private static final String REGEX_CMND_EMPLOYEE = "^([0-9]{12}|[0-9]{9})$";
     private static final String REGEX_TELEPHONE_EMPOLYEE = "^0[0-9]{9}$";

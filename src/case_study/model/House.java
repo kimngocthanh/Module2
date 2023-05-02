@@ -10,7 +10,7 @@ public class House extends Facility {
 
     }
 
-    public House(int idService, String nameService, double area, double rentalCosts, int quantity, String rentalType, String roomStandardHouse, int floorHouse) {
+    public House(String idService, String nameService, double area, double rentalCosts, int quantity, String rentalType, String roomStandardHouse, int floorHouse) {
         super(idService, nameService, area, rentalCosts, quantity, rentalType);
         this.roomStandardHouse = roomStandardHouse;
         this.floorHouse = floorHouse;
@@ -37,8 +37,7 @@ public class House extends Facility {
         return "House{" +
                 super.toString() + '\''+
                 "roomStandardHouse='" + roomStandardHouse + '\'' +
-                ", floorHouse=" + floorHouse +
-                '}';
+                ", floorHouse=" + floorHouse +'}';
     }
     public String writeAndReadToFile() {
         return super.getIdService() +","+ super.getNameService()+","+ super.getArea()+","+super.getRentalCosts()+","+super.getQuantity()+","+super.getRentalType()+","+

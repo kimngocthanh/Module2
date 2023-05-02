@@ -31,25 +31,34 @@ public class EmployeeService implements IEmployeeService {
 
         String idEmployee;
         do {
-            System.out.print("nhập id employee :");
+            System.out.print("nhập id employee dạng NV-YYYY:");
             idEmployee = scanner.nextLine();
+            if (!EmployeeValidate.checkidEmployee(idEmployee)) {
+                System.out.println("nhập lại theo đúng dạng NV-YYYY");
+            }
         } while (!EmployeeValidate.checkidEmployee(idEmployee));
 
         String nameEmployee;
         do {
             System.out.print("nhập name employee: ");
             nameEmployee = scanner.nextLine();
+            if (!EmployeeValidate.checkNameEmployee(nameEmployee)) {
+                System.out.println("nhập lại theo đúng dạng viết hoa chữ đầu trong tên:");
+            }
         } while (!EmployeeValidate.checkNameEmployee(nameEmployee));
 
         String localDate;
         do {
-            System.out.println("nhập ngày sinh: ");
+            System.out.print("nhập năm sinh: ");
             localDate = scanner.nextLine();
+            if (!EmployeeValidate.checkNameEmployee(localDate)) {
+                System.out.println("nhập lại đúng dạng ngày tháng năm YYYY-MM-DD");
+            }
         } while (!EmployeeValidate.checkOld(localDate));
 
-        System.out.println("Chon gioi tinh \n" +
-                "1. Nam \n" +
-                "2. Nu \n");
+        System.out.print("1. Nam \n" +
+                "2. Nu \n" +
+                "Chon gioi tinh: ");
         String gender = null;
         String chooseGender = scanner.nextLine();
         if (chooseGender.equals("1")) {
@@ -62,12 +71,18 @@ public class EmployeeService implements IEmployeeService {
         do {
             System.out.print("nhập chứng minh nhân dân: ");
             cmnd = scanner.nextLine();
+            if (!EmployeeValidate.checkCmndEmployee(cmnd)) {
+                System.out.println("nhập lại cmnd 9 số hoặc 12 số:");
+            }
         } while (!EmployeeValidate.checkCmndEmployee(cmnd));
 
         String telephone;
         do {
             System.out.print("nhập số điện thoại: ");
             telephone = scanner.nextLine();
+            if (!EmployeeValidate.checkTelephoneEmployee(telephone)) {
+                System.out.println("nhập số điện thoại bắt đầu từ 0 và đủ 10 số");
+            }
         } while (!EmployeeValidate.checkTelephoneEmployee(telephone));
 
         System.out.print("nhập email: ");
@@ -79,7 +94,7 @@ public class EmployeeService implements IEmployeeService {
                 "3. Đại học\n" +
                 "4. Sau đại học");
         String level = null;
-        System.out.println("chọn trình độ: ");
+        System.out.print("chọn trình độ: ");
         String chose = scanner.nextLine();
         boolean flag = true;
         do {
@@ -114,7 +129,7 @@ public class EmployeeService implements IEmployeeService {
                 "5. Quản lý\n" +
                 "6. Giám đốc");
         String location = null;
-        System.out.println("chọn vị trí");
+        System.out.print("chọn vị trí: ");
         int choseLocation = Integer.parseInt(scanner.nextLine());
         do {
             switch (choseLocation) {
@@ -151,6 +166,9 @@ public class EmployeeService implements IEmployeeService {
         do {
             System.out.print("nhập lương: ");
             wage = Double.parseDouble(scanner.nextLine());
+            if (wage < 0) {
+                System.out.println("nhập lương lớn hơn 0.");
+            }
         } while (wage < 0);
 
         Employee employee = new Employee(idEmployee, nameEmployee, localDate, gender, cmnd, telephone, email, level, location, wage);
@@ -164,8 +182,8 @@ public class EmployeeService implements IEmployeeService {
         String id = scanner.nextLine();
         boolean flag = true;
         for (int i = 0; i < employeelist.size(); i++) {
-            if(Objects.equals(id, employeelist.get(i).getId())){
-                do{
+            if (Objects.equals(id, employeelist.get(i).getId())) {
+                do {
                     System.out.println("chọn trường bạn muốn edit\n" +
                             "1. edit idEmployee\n" +
                             "2. edit nameEmployee\n" +
@@ -180,42 +198,51 @@ public class EmployeeService implements IEmployeeService {
                             "11. thoát edit" +
                             "chọn trường bạn muốn edit: ");
                     int chose = Integer.parseInt(scanner.nextLine());
-                    switch (chose){
+                    switch (chose) {
                         case 1:
                             String idEmployee;
                             do {
-                                System.out.print("nhập id employee :");
+                                System.out.print("nhập id employee dạng NV-YYYY:");
                                 idEmployee = scanner.nextLine();
+                                if (!EmployeeValidate.checkidEmployee(idEmployee)) {
+                                    System.out.println("nhập lại theo đúng dạng NV-YYYY");
+                                }
                             } while (!EmployeeValidate.checkidEmployee(idEmployee));
                             Employee employee = new Employee(idEmployee, employeelist.get(i).getName(), employeelist.get(i).getLocalDate(), employeelist.get(i).getGender(), employeelist.get(i).getCmnd(),
                                     employeelist.get(i).getTelephone(), employeelist.get(i).getEmail(), employeelist.get(i).getLevel(), employeelist.get(i).getLocation(), employeelist.get(i).getWage());
-                            employeeRepository.editEmployee(id,employee);
+                            employeeRepository.editEmployee(id, employee);
                             break;
                         case 2:
                             String nameEmployee;
                             do {
                                 System.out.print("nhập name employee: ");
                                 nameEmployee = scanner.nextLine();
+                                if (!EmployeeValidate.checkNameEmployee(nameEmployee)) {
+                                    System.out.println("nhập lại theo đúng dạng viết hoa chữ đầu trong tên:");
+                                }
                             } while (!EmployeeValidate.checkNameEmployee(nameEmployee));
                             employee = new Employee(employeelist.get(i).getId(), nameEmployee, employeelist.get(i).getLocalDate(), employeelist.get(i).getGender(), employeelist.get(i).getCmnd(),
                                     employeelist.get(i).getTelephone(), employeelist.get(i).getEmail(), employeelist.get(i).getLevel(), employeelist.get(i).getLocation(), employeelist.get(i).getWage());
-                            employeeRepository.editEmployee(id,employee);
+                            employeeRepository.editEmployee(id, employee);
                             break;
                         case 3:
                             String localDate;
                             do {
                                 System.out.print("nhập năm sinh: ");
                                 localDate = scanner.nextLine();
-
+                                if (!EmployeeValidate.checkNameEmployee(localDate)) {
+                                    System.out.println("nhập lại đúng dạng ngày tháng năm YYYY-MM-DD");
+                                }
                             } while (!EmployeeValidate.checkOld(localDate));
                             employee = new Employee(employeelist.get(i).getId(), employeelist.get(i).getName(), localDate, employeelist.get(i).getGender(), employeelist.get(i).getCmnd(),
                                     employeelist.get(i).getTelephone(), employeelist.get(i).getEmail(), employeelist.get(i).getLevel(), employeelist.get(i).getLocation(), employeelist.get(i).getWage());
-                            employeeRepository.editEmployee(id,employee);
+                            employeeRepository.editEmployee(id, employee);
                             break;
                         case 4:
-                            System.out.println("Chon gioi tinh \n" +
+                            System.out.print(
                                     "1. Nam \n" +
-                                    "2. Nu \n");
+                                    "2. Nu \n" +
+                                    "Chon gioi tinh: ");
                             String gender = null;
                             String chooseGender = scanner.nextLine();
                             if (chooseGender.equals("1")) {
@@ -225,34 +252,40 @@ public class EmployeeService implements IEmployeeService {
                             }
                             employee = new Employee(employeelist.get(i).getId(), employeelist.get(i).getName(), employeelist.get(i).getLocalDate(), gender, employeelist.get(i).getCmnd(),
                                     employeelist.get(i).getTelephone(), employeelist.get(i).getEmail(), employeelist.get(i).getLevel(), employeelist.get(i).getLocation(), employeelist.get(i).getWage());
-                            employeeRepository.editEmployee(id,employee);
+                            employeeRepository.editEmployee(id, employee);
                             break;
                         case 5:
                             String cmnd;
                             do {
                                 System.out.print("nhập chứng minh nhân dân: ");
                                 cmnd = scanner.nextLine();
+                                if (!EmployeeValidate.checkCmndEmployee(cmnd)) {
+                                    System.out.println("nhập lại cmnd 9 số hoặc 12 số:");
+                                }
                             } while (!EmployeeValidate.checkCmndEmployee(cmnd));
                             employee = new Employee(employeelist.get(i).getId(), employeelist.get(i).getName(), employeelist.get(i).getLocalDate(), employeelist.get(i).getGender(), cmnd,
                                     employeelist.get(i).getTelephone(), employeelist.get(i).getEmail(), employeelist.get(i).getLevel(), employeelist.get(i).getLocation(), employeelist.get(i).getWage());
-                            employeeRepository.editEmployee(id,employee);
+                            employeeRepository.editEmployee(id, employee);
                             break;
                         case 6:
                             String telephone;
                             do {
                                 System.out.print("nhập số điện thoại: ");
                                 telephone = scanner.nextLine();
+                                if (!EmployeeValidate.checkTelephoneEmployee(telephone)) {
+                                    System.out.println("nhập số điện thoại bắt đầu từ 0 và đủ 10 số");
+                                }
                             } while (!EmployeeValidate.checkTelephoneEmployee(telephone));
                             employee = new Employee(employeelist.get(i).getId(), employeelist.get(i).getName(), employeelist.get(i).getLocalDate(), employeelist.get(i).getGender(), employeelist.get(i).getCmnd(),
                                     telephone, employeelist.get(i).getEmail(), employeelist.get(i).getLevel(), employeelist.get(i).getLocation(), employeelist.get(i).getWage());
-                            employeeRepository.editEmployee(id,employee);
+                            employeeRepository.editEmployee(id, employee);
                             break;
                         case 7:
                             System.out.print("nhập email: ");
                             String email = scanner.nextLine();
                             employee = new Employee(employeelist.get(i).getId(), employeelist.get(i).getName(), employeelist.get(i).getLocalDate(), employeelist.get(i).getGender(), employeelist.get(i).getCmnd(),
                                     employeelist.get(i).getTelephone(), email, employeelist.get(i).getLevel(), employeelist.get(i).getLocation(), employeelist.get(i).getWage());
-                            employeeRepository.editEmployee(id,employee);
+                            employeeRepository.editEmployee(id, employee);
                             break;
                         case 8:
                             System.out.println("chọn trình độ \n" +
@@ -288,7 +321,7 @@ public class EmployeeService implements IEmployeeService {
                             } while (flag1);
                             employee = new Employee(employeelist.get(i).getId(), employeelist.get(i).getName(), employeelist.get(i).getLocalDate(), employeelist.get(i).getGender(), employeelist.get(i).getCmnd(),
                                     employeelist.get(i).getTelephone(), employeelist.get(i).getEmail(), level, employeelist.get(i).getLocation(), employeelist.get(i).getWage());
-                            employeeRepository.editEmployee(id,employee);
+                            employeeRepository.editEmployee(id, employee);
                             break;
                         case 9:
                             System.out.println("chọn vị trí:\n" +
@@ -299,7 +332,7 @@ public class EmployeeService implements IEmployeeService {
                                     "5. Quản lý\n" +
                                     "6. Giám đốc");
                             String location = null;
-                            System.out.println("chọn vị trí");
+                            System.out.print("chọn vị trí: ");
                             int choseLocation = Integer.parseInt(scanner.nextLine());
                             boolean flag2 = true;
                             do {
@@ -334,25 +367,28 @@ public class EmployeeService implements IEmployeeService {
                             } while (flag2);
                             employee = new Employee(employeelist.get(i).getId(), employeelist.get(i).getName(), employeelist.get(i).getLocalDate(), employeelist.get(i).getGender(), employeelist.get(i).getCmnd(),
                                     employeelist.get(i).getTelephone(), employeelist.get(i).getEmail(), employeelist.get(i).getLevel(), location, employeelist.get(i).getWage());
-                            employeeRepository.editEmployee(id,employee);
+                            employeeRepository.editEmployee(id, employee);
                             break;
                         case 10:
                             double wage;
                             do {
                                 System.out.print("nhập lương: ");
                                 wage = Double.parseDouble(scanner.nextLine());
+                                if (wage < 0) {
+                                    System.out.println("nhập lương lớn hơn 0");
+                                }
                             } while (wage < 0);
                             employee = new Employee(employeelist.get(i).getId(), employeelist.get(i).getName(), employeelist.get(i).getLocalDate(), employeelist.get(i).getGender(), employeelist.get(i).getCmnd(),
                                     employeelist.get(i).getTelephone(), employeelist.get(i).getEmail(), employeelist.get(i).getLevel(), employeelist.get(i).getLocation(), wage);
-                            employeeRepository.editEmployee(id,employee);
+                            employeeRepository.editEmployee(id, employee);
                             break;
                         case 11:
-                            flag=false;
+                            flag = false;
                             break;
                         default:
                             System.out.println("nhập ko phù hợp: ");
                     }
-                }while (flag);
+                } while (flag);
                 System.out.println("edit thành công!");
             }
         }
