@@ -1,12 +1,14 @@
 package case_study.repository;
 
 import case_study.model.Booking;
+import case_study.model.Facility;
 import case_study.model.Villa;
 
 import java.util.TreeSet;
 
 public class BookingRepository implements IBookingRepository {
     private static TreeSet<Booking> bookingTreeSet = new TreeSet<>();
+    FacilityRepository facilityRepository = new FacilityRepository();
 
     static {
         Booking booking = new Booking("a", " 2023-05-05", "2023-05-02", "2024-06-01", "KH-0000", "HO-0000");
@@ -27,5 +29,9 @@ public class BookingRepository implements IBookingRepository {
     @Override
     public void add(Booking booking) {
         bookingTreeSet.add(booking);
+    }
+
+    public void addFacilityMaintenance(Booking booking){
+        facilityRepository.addBooking(booking.getIdService());
     }
 }

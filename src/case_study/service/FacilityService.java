@@ -307,7 +307,7 @@ public class FacilityService implements IFacilityService {
         linkedHashMap = facilityRepository.display();
         Set<Facility> set = linkedHashMap.keySet();
         for (Facility f : set) {
-            if(linkedHashMap.get(f)>=5){
+            if (linkedHashMap.get(f) >= 5) {
                 System.out.println(f);
             }
         }

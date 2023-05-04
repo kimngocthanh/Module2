@@ -1,12 +1,11 @@
 package case_study.repository;
 
-import case_study.model.Facility;
-import case_study.model.House;
-import case_study.model.Room;
-import case_study.model.Villa;
+import case_study.model.*;
 
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class FacilityRepository implements IFacilityRepository {
     private static Map<Facility, Integer> linkedHashMap = new LinkedHashMap<>();
@@ -45,6 +44,16 @@ public class FacilityRepository implements IFacilityRepository {
     @Override
     public Map<Facility, Integer> displayValue() {
         return linkedHashMap;
+    }
+
+    public void addBooking(String idService) {
+        Set<Facility> set = linkedHashMap.keySet();
+        for (Facility f: set) {
+            if(idService.equals(f.getIdService())){
+                Integer key= linkedHashMap.get(f)+1;
+                linkedHashMap.put(f,key);
+            }
+        }
     }
 
 }

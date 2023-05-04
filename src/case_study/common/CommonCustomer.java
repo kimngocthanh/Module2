@@ -1,11 +1,7 @@
 package case_study.common;
 
 import case_study.model.Customer;
-import case_study.model.Employee;
-
 import java.io.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 

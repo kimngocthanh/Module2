@@ -8,7 +8,7 @@ import case_study.repository.ContactRepository;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-public class ContractService implements IContactService{
+public class ContractService implements IContactService {
     ContactRepository contactRepository = new ContactRepository();
     TreeSet<Contract> contractTreeSet = contactRepository.displayContact();
     Scanner scanner = new Scanner(System.in);
@@ -24,31 +24,29 @@ public class ContractService implements IContactService{
     @Override
     public void addContract() {
         boolean flag = false;
-        System.out.print("nhập số hợp đồng: ");
-        int numberContract = Integer.parseInt(scanner.nextLine());
-
         System.out.print("nhập mã booking: ");
-        String idBooking ;
-        do{
+        String idBooking;
+        do {
             idBooking = scanner.nextLine();
-            for (Booking b: bookingTreeSet) {
-                if(idBooking.equals(b.getIdBooking())){
+            for (Booking b : bookingTreeSet) {
+                if (idBooking.equals(b.getIdBooking())) {
                     flag = true;
                     break;
                 }
-            }if (!flag){
+            }
+            if (!flag) {
                 System.out.println("ko có trong mã booking!");
             }
-        }while (!flag);
-
+        } while (!flag);
+        System.out.print("nhập số hợp đồng: ");
+        int numberContract = Integer.parseInt(scanner.nextLine());
         System.out.print("nhập số tiền cọc trước: ");
         int advanceDepositAmount = Integer.parseInt(scanner.nextLine());
         System.out.print("nhập số tiền tổng: ");
         int totalPaymentAmount = Integer.parseInt(scanner.nextLine());
 
-        Contract contract = new Contract(numberContract,idBooking,advanceDepositAmount,totalPaymentAmount);
+        Contract contract = new Contract(numberContract, idBooking, advanceDepositAmount, totalPaymentAmount);
         contactRepository.addContract(contract);
         System.out.println("add thành công!");
-
     }
 }

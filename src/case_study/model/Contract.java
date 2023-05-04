@@ -1,12 +1,12 @@
 package case_study.model;
 
-public class Contract implements Comparable<Contract>{
+public class Contract implements Comparable<Contract> {
     private int numberContract;
     private String idBooking;
     private int advanceDepositAmount;
     private int totalPaymentAmount;
 
-    public Contract(){
+    public Contract() {
 
     }
 
@@ -58,7 +58,6 @@ public class Contract implements Comparable<Contract>{
                 ", totalPaymentAmount=" + totalPaymentAmount +
                 '}';
     }
-
 
     @Override
     public int compareTo(Contract o) {

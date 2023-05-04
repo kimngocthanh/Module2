@@ -18,13 +18,14 @@ public class BookingService implements IBookingService {
     Map<Facility, Integer> linkedHashMap = facilityRepository.display();
     Scanner scanner = new Scanner(System.in);
 
-
-
     @Override
     public void addBooking() {
         String idClient;
         boolean flag = false;
         do {
+            for (Customer c: customerList) {
+                System.out.println(c);
+            }
             System.out.print("nhập mã khách hàng muốn booking: ");
             idClient = scanner.nextLine();
             for (Customer customer : customerList) {
@@ -41,6 +42,10 @@ public class BookingService implements IBookingService {
         linkedHashMap = facilityRepository.display();
         boolean flag1 = false;
         do {
+            Set<Facility> facilitySet = linkedHashMap.keySet();
+            for (Facility f: facilitySet) {
+                System.out.println(f);
+            }
             System.out.print("nhập mã dịch vụ: ");
             idService = scanner.nextLine();
             Set<Facility> set = linkedHashMap.keySet();
@@ -64,6 +69,8 @@ public class BookingService implements IBookingService {
         String dayEndBooking = scanner.nextLine();
         Booking booking = new Booking(idBooking, dayBooking, dayStartBooking, dayEndBooking, idClient, idService);
         bookingRepository.add(booking);
+        linkedHashMap = facilityRepository.display();
+        bookingRepository.addFacilityMaintenance(booking);
         System.out.println("add thành công!");
     }
 

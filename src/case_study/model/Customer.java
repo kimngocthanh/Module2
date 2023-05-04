@@ -42,7 +42,7 @@ public class Customer extends Person {
     }
 
     public String writeAndReadToFile() {
-        return super.getId() + "," + super.getName() + "," + super.getLocalDate() + "," + super.getGender()+ "," + super.getCmnd() + "," + super.getTelephone()+ "," + super.getEmail() +","+
-                this.customerType+ "," + this.adress;
+        return super.getId() + "," + super.getName() + "," + super.getLocalDate() + "," + super.getGender() + "," + super.getCmnd() + "," + super.getTelephone() + "," + super.getEmail() + "," +
+                this.customerType + "," + this.adress;
     }
 }
