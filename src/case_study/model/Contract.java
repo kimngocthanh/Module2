@@ -56,7 +56,7 @@ public class Contract implements Comparable<Contract> {
                 ", idBooking='" + idBooking + '\'' +
                 ", advanceDepositAmount=" + advanceDepositAmount +
                 ", totalPaymentAmount=" + totalPaymentAmount +
-                '}';
+                '}'+ "\n";
     }
 
     @Override

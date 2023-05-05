@@ -3,32 +3,50 @@ package case_study.repository;
 import case_study.model.Booking;
 import case_study.model.Contract;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.TreeSet;
+import java.util.*;
 
 public class ContactRepository implements IContactRepository {
-    private static Queue<Booking> bookingQueue = new ArrayDeque<>();
-    private static TreeSet<Contract> contractTreeSet = new TreeSet<>();
+    private static final BookingRepository bookingRepository = new BookingRepository();
+    private static final Queue<Booking> bookingQueue = new LinkedList<>();
+    private static final List<Contract> contractQueue = new ArrayList<>();
 
     static {
-        Contract contract = new Contract(1, "a", 20, 30);
-        Contract contract1 = new Contract(2, "b", 30, 40);
-        Contract contract2 = new Contract(3, "c", 20, 30);
-        Contract contract3 = new Contract(4, "d", 20, 30);
-        contractTreeSet.add(contract);
-        contractTreeSet.add(contract1);
-        contractTreeSet.add(contract2);
-        contractTreeSet.add(contract3);
+        Set<Booking> bookingSet = bookingRepository.display();
+        List<Booking> bookingList = new ArrayList<>();
+        for (Booking b : bookingSet) {
+            bookingList.add(b);
+        }
+        Collections.sort(bookingList, new BookingComparable());
+        for (Booking b : bookingList) {
+            bookingQueue.add(b);
+        }
     }
 
     @Override
-    public TreeSet<Contract> displayContact() {
-        return contractTreeSet;
+    public List<Contract> displayContact() {
+        return contractQueue;
     }
 
     @Override
     public void addContract(Contract contract) {
-        contractTreeSet.add(contract);
+        contractQueue.add(contract);
+    }
+
+    @Override
+    public Queue<Booking> displayBooking() {
+        return bookingQueue;
+    }
+
+    @Override
+    public void editContract(int numberContract, Contract contract) {
+        for (int i = 0; i < contractQueue.size(); i++) {
+            if (numberContract == contractQueue.get(i).getNumberContract()) {
+                contractQueue.set(i, contract);
+            }
+        }
     }
 }
+
+
+
+

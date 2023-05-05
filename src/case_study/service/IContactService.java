@@ -4,4 +4,6 @@ public interface IContactService {
     void displayContract();
 
     void addContract();
+
+    void editContract();
 }

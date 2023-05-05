@@ -10,15 +10,18 @@ public class BookingRepository implements IBookingRepository {
     private static TreeSet<Booking> bookingTreeSet = new TreeSet<>();
     FacilityRepository facilityRepository = new FacilityRepository();
 
+
     static {
         Booking booking = new Booking("a", " 2023-05-05", "2023-05-02", "2024-06-01", "KH-0000", "HO-0000");
         Booking booking1 = new Booking("b", " 2023-05-02", "2023-05-03", "2024-06-01", "KH-0001", "HO-0001");
         Booking booking2 = new Booking("c", " 2023-05-03", "2023-05-01", "2024-07-01", "KH-0002", "VI-0000");
-        Booking booking3 = new Booking("d", " 2023-05-04", "2023-05-01", "2024-06-01", "KH-0003", "VI-0001");
+        Booking booking3 = new Booking("d", " 2023-05-04", "2023-05-01", "2024-06-01", "KH-0003", "RO-0001");
+        Booking booking4 = new Booking("e", " 2023-05-04", "2023-05-01", "2024-06-01", "KH-0003", "RO-0001");
         bookingTreeSet.add(booking);
         bookingTreeSet.add(booking1);
         bookingTreeSet.add(booking2);
         bookingTreeSet.add(booking3);
+        bookingTreeSet.add(booking4);
     }
 
     @Override
